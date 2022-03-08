@@ -17,6 +17,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "prepare": "husky install",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --passWithNoTests",
@@ -38,6 +39,20 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^7.0.4"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.tsx",
+      "src/**/*.ts",
+      "!src/**/*.test.tsx",
+      "!src/index.tsx",
+      "!src/setupTests.ts",
+      "!src/react-app-env.d.ts",
+      "!src/report.WebVitals.ts"
     ]
   }
 }
