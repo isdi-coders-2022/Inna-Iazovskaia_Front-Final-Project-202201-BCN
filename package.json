@@ -27,6 +27,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --passWithNoTests",
+    "coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -58,7 +59,7 @@
       "!src/index.tsx",
       "!src/setupTests.ts",
       "!src/react-app-env.d.ts",
-      "!src/report.WebVitals.ts"
+      "!src/reportWebVitals.ts"
     ]
   }
 }
