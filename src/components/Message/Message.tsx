@@ -1,7 +1,11 @@
-import MessageInterface from "../../types/MessageInterface";
+import Message from "../../types/Message";
 
-const Message = ({ text }: MessageInterface): JSX.Element => {
+interface MessageCardProps {
+  message: Message;
+}
+
+const MessageCard = ({ message: { text } }: MessageCardProps): JSX.Element => {
   return <li>{text}</li>;
 };
 
-export default Message;
+export default MessageCard;
