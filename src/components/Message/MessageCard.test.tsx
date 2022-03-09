@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import MessageCard from "./Message";
+import MessageCard from "./MessagCard";
 
 describe("Given a Message component", () => {
   describe("When it's receives message with 'Hello' as text", () => {
