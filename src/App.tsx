@@ -1,13 +1,15 @@
-import React from "react";
-import Navigation from "./components/Navigation/Navigation";
+import { Route, Routes } from "react-router-dom";
+import MessagesPage from "./pages/MessagesPage/MessagesPage";
 
 function App() {
   return (
-    <>
-      <main>
-        <Navigation />
-      </main>
-    </>
+    <main>
+      <Routes>
+        <Route path="/">
+          <Route index element={<MessagesPage />} />
+        </Route>
+      </Routes>
+    </main>
   );
 }
 
