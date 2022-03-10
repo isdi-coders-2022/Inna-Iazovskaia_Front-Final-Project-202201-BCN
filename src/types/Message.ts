@@ -3,6 +3,7 @@ interface Message {
   text: string;
   sender: string;
   recipient: string;
+  id: string;
 }
 
 export default Message;
