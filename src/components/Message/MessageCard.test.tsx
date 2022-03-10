@@ -9,6 +9,7 @@ describe("Given a Message component", () => {
         text: "Hello",
         sender: "",
         recipient: "",
+        id: "",
       };
 
       render(<MessageCard message={receivedMessage} />);

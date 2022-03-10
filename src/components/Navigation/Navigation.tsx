@@ -16,7 +16,6 @@ const NavigationBar = styled.nav`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    list-style: none;
 
     .profile {
       @media (min-width: 600px) {

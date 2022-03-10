@@ -9,12 +9,14 @@ describe("Given a loadMessagesAction", () => {
           text: "Hello!",
           sender: "",
           recipient: "",
+          id: "",
         },
         {
           date: "",
           text: "How are you?",
           sender: "",
           recipient: "",
+          id: "",
         },
       ];
       const expectedAction = {
