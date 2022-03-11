@@ -6,7 +6,7 @@ import MessagesPage from "./MessagesPage";
 
 describe("Given a MessagePage component", () => {
   describe("When it's rendered", () => {
-    test("Then it should rnder nav", () => {
+    test("Then it should render nav", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
