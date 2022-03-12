@@ -4,7 +4,10 @@ import styled from "styled-components";
 import MessageCard from "../../components/Message/MessageCard";
 import Navigation from "../../components/Navigation/Navigation";
 import { RootState } from "../../rudux/store";
-import { loadMessagesThunk } from "../../rudux/thunks/messagesThunks";
+import {
+  deleteMessageThunk,
+  loadMessagesThunk,
+} from "../../rudux/thunks/messagesThunks";
 
 const Header = styled.header`
   height: 120px;
@@ -23,13 +26,23 @@ const MessagesPage = (): JSX.Element => {
     dispatch(loadMessagesThunk);
   }, [dispatch]);
 
+  const deleteMessage = (id: string) => {
+    dispatch(deleteMessageThunk(id));
+  };
+
   return (
     <>
       <Header />
       <MessagesContainer>
         <ul>
           {messages.map((message) => (
-            <MessageCard message={message} key={message.id} />
+            <MessageCard
+              message={message}
+              key={message.id}
+              actionOnClick={() => {
+                deleteMessage(message.id);
+              }}
+            />
           ))}
         </ul>
       </MessagesContainer>
