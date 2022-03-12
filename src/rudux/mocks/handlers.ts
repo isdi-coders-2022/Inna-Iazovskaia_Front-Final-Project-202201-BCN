@@ -24,4 +24,9 @@ export const handlers = [
       })
     )
   ),
+
+  rest.delete(
+    `${process.env.REACT_APP_API_FINDME}messages/delete/1`,
+    (req, res, ctx) => res(ctx.status(200))
+  ),
 ];
