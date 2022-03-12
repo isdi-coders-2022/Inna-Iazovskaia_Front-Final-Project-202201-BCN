@@ -41,4 +41,43 @@ describe("Given a messagesReducer function", () => {
       expect(messages).toHaveLength(0);
     });
   });
+
+  describe("When it receives current messages 'Hello!' and 'How are you?' and delete-messages action with id of message 'Hello'", () => {
+    test("Then it should return message 'How are you?'", () => {
+      const currentMessages = [
+        {
+          date: "",
+          text: "Hello!",
+          sender: "",
+          recipient: "",
+          id: "1",
+        },
+        {
+          date: "",
+          text: "How are you?",
+          sender: "",
+          recipient: "",
+          id: "2",
+        },
+      ];
+      const action = {
+        type: "delete-message",
+        id: currentMessages[0].id,
+      };
+
+      const expectedMessages = [
+        {
+          date: "",
+          text: "How are you?",
+          sender: "",
+          recipient: "",
+          id: "2",
+        },
+      ];
+
+      const messages = messagesReducer(currentMessages, action);
+
+      expect(messages).toEqual(expectedMessages);
+    });
+  });
 });

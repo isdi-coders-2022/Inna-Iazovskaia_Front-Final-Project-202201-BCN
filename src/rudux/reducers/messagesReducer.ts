@@ -12,6 +12,13 @@ const messagesReducer = (
     case actionsTypes.loadMessages:
       newMessages = [...action.messages];
       break;
+
+    case actionsTypes.deleteMessage:
+      newMessages = currentMessages.filter(
+        (message) => message.id !== action.id
+      );
+      break;
+
     default:
       newMessages = [...currentMessages];
       break;
