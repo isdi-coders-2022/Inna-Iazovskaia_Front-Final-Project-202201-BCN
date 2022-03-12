@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 interface MessageCardProps {
   message: Message;
-  actionOnClick: React.MouseEventHandler;
+  actionOnClick: React.MouseEventHandler<SVGSVGElement>;
 }
 
 const MessageContainer = styled.li`
