@@ -29,4 +29,20 @@ export const handlers = [
     `${process.env.REACT_APP_API_FINDME}messages/delete/1`,
     (req, res, ctx) => res(ctx.status(200))
   ),
+
+  rest.post(
+    `${process.env.REACT_APP_API_FINDME}messages/create`,
+    (req, res, ctx) => {
+      return res(
+        ctx.status(200),
+        ctx.json({
+          date: "",
+          text: "I am fine.",
+          sender: "",
+          recipient: "",
+          id: "3",
+        })
+      );
+    }
+  ),
 ];
