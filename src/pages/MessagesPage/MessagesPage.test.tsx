@@ -22,7 +22,7 @@ describe("Given a MessagePage component", () => {
   });
 
   describe("When it receives 2 messages 'Hello!' and 'How are you?'", () => {
-    test("Then it should display the messages", async () => {
+    test("Then it should display the messages and 2 icons", async () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -36,6 +36,22 @@ describe("Given a MessagePage component", () => {
 
       expect(messageOne).toBeInTheDocument();
       expect(messageTwo).toBeInTheDocument();
+    });
+
+    test("Then it should display 2 delete icons", async () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <MessagesPage />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const icons = (await screen.findAllByTestId(
+        "deleteIcon"
+      )) as HTMLElement[];
+
+      expect(icons).toHaveLength(2);
     });
   });
 });
