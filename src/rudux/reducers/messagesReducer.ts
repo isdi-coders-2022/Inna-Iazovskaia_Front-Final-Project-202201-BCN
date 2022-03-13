@@ -19,6 +19,10 @@ const messagesReducer = (
       );
       break;
 
+    case actionsTypes.createMessage:
+      newMessages = [...currentMessages, action.message];
+      break;
+
     default:
       newMessages = [...currentMessages];
       break;
