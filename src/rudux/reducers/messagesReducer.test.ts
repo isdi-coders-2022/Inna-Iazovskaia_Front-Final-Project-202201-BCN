@@ -80,4 +80,63 @@ describe("Given a messagesReducer function", () => {
       expect(messages).toEqual(expectedMessages);
     });
   });
+
+  describe("When it receives current messages 'Hello!' and 'How are you?' and create-messages action with message 'I am fine.'", () => {
+    describe("Then it should return messages: 'Hello!', 'How are you?' and 'I am fine.'", () => {
+      const currentMessages = [
+        {
+          date: "",
+          text: "Hello!",
+          sender: "",
+          recipient: "",
+          id: "1",
+        },
+        {
+          date: "",
+          text: "How are you?",
+          sender: "",
+          recipient: "",
+          id: "2",
+        },
+      ];
+      const newMessage = {
+        date: "",
+        text: "I am fine.",
+        sender: "",
+        recipient: "",
+        id: "3",
+      };
+      const action = {
+        type: "create-message",
+        message: newMessage,
+      };
+      const expectedMessages = [
+        {
+          date: "",
+          text: "Hello!",
+          sender: "",
+          recipient: "",
+          id: "1",
+        },
+        {
+          date: "",
+          text: "How are you?",
+          sender: "",
+          recipient: "",
+          id: "2",
+        },
+        {
+          date: "",
+          text: "I am fine.",
+          sender: "",
+          recipient: "",
+          id: "3",
+        },
+      ];
+
+      const messages = messagesReducer(currentMessages, action);
+
+      expect(messages).toEqual(expectedMessages);
+    });
+  });
 });
