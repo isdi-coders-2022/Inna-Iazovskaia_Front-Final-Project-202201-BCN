@@ -1,4 +1,8 @@
-import { deleteMessageAction, loadMessagesAction } from "./actionsCreators";
+import {
+  createMessageAction,
+  deleteMessageAction,
+  loadMessagesAction,
+} from "./actionsCreators";
 
 describe("Given a loadMessagesAction", () => {
   describe("When it receives messages 'Helo!' and 'How are you?'", () => {
@@ -41,6 +45,28 @@ describe("Given a deleteMessageAction", () => {
       };
 
       const action = deleteMessageAction(id);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a createMessageAction", () => {
+  describe("When it receives message", () => {
+    test("Then it should return create-message action with the message", () => {
+      const message = {
+        date: "",
+        text: "Hello!",
+        sender: "",
+        recipient: "",
+        id: "",
+      };
+      const expectedAction = {
+        type: "create-message",
+        message: message,
+      };
+
+      const action = createMessageAction(message);
 
       expect(action).toEqual(expectedAction);
     });

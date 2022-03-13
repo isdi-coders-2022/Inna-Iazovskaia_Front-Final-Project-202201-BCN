@@ -10,3 +10,8 @@ export const deleteMessageAction = (id: string) => ({
   type: actionsTypes.deleteMessage,
   id,
 });
+
+export const createMessageAction = (message: Message) => ({
+  type: actionsTypes.createMessage,
+  message,
+});
