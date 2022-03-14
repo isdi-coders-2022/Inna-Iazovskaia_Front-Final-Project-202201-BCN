@@ -5,7 +5,6 @@ import {
   loadMessagesAction,
 } from "../actions/actionsCreators";
 import { AnyAction, Dispatch } from "redux";
-import Message from "../../types/Message";
 
 export const loadMessagesThunk = async (
   dispatch: ThunkDispatch<void, unknown, AnyAction>
@@ -32,7 +31,7 @@ export const deleteMessageThunk =
   };
 
 export const createMessageThunk =
-  (message: Message) => async (dispatch: Dispatch) => {
+  (message: {}) => async (dispatch: Dispatch) => {
     const response = await fetch(
       `${process.env.REACT_APP_API_FINDME}messages/create`,
       {

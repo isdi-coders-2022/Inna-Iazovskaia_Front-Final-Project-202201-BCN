@@ -23,10 +23,7 @@ const Input = styled.input`
 const MessageForm = (): JSX.Element => {
   const dispatch = useDispatch();
   const initialData = {
-    date: "",
     text: "",
-    sender: "",
-    recipient: "",
     id: "",
   };
   const form = useRef(null);
