@@ -6,6 +6,12 @@ import { createMessageThunk } from "../../redux/thunks/messagesThunks";
 const Form = styled.form`
   display: flex;
   justify-content: center;
+
+  button {
+    @media (max-width: 600px) {
+      display: none;
+    }
+  }
 `;
 
 const Input = styled.input`
@@ -50,6 +56,9 @@ const MessageForm = (): JSX.Element => {
         value={formData.text}
         onChange={handleChange}
       />
+      <button className="form_button" type="submit">
+        send
+      </button>
     </Form>
   );
 };
