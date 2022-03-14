@@ -5,7 +5,6 @@ import {
   loadMessagesAction,
 } from "../actions/actionsCreators";
 import { AnyAction, Dispatch } from "redux";
-import Message from "../../types/Message";
 
 export const loadMessagesThunk = async (
   dispatch: ThunkDispatch<void, unknown, AnyAction>
