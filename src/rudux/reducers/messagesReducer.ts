@@ -25,7 +25,6 @@ const messagesReducer = (
 
     default:
       newMessages = [...currentMessages];
-      break;
   }
 
   return newMessages;
