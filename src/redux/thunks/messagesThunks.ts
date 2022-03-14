@@ -32,7 +32,7 @@ export const deleteMessageThunk =
   };
 
 export const createMessageThunk =
-  (message: Message) => async (dispatch: Dispatch) => {
+  (message: {}) => async (dispatch: Dispatch) => {
     const response = await fetch(
       `${process.env.REACT_APP_API_FINDME}messages/create`,
       {
