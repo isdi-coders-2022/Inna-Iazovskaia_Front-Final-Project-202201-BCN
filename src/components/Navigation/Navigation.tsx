@@ -9,6 +9,7 @@ const NavigationBar = styled.nav`
   bottom: 0;
   width: 100vw;
   padding-bottom: 15px;
+  background: black;
 
   ul {
     margin: 0;
