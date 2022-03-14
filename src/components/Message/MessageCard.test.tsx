@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { store } from "../../rudux/store";
+import { store } from "../../redux/store";
 import MessageCard from "./MessageCard";
 import userEvent from "@testing-library/user-event";
 

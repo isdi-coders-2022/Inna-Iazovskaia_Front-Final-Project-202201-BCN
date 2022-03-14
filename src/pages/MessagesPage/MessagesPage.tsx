@@ -5,11 +5,11 @@ import Loader from "../../components/Loader/Loader";
 import MessageCard from "../../components/Message/MessageCard";
 import MessageForm from "../../components/MessageForm/MessageForm";
 import Navigation from "../../components/Navigation/Navigation";
-import { RootState } from "../../rudux/store";
+import { RootState } from "../../redux/store";
 import {
   deleteMessageThunk,
   loadMessagesThunk,
-} from "../../rudux/thunks/messagesThunks";
+} from "../../redux/thunks/messagesThunks";
 
 const Header = styled.header`
   width: 100vw;
