@@ -1,4 +1,9 @@
-import { render, screen } from "@testing-library/react";
+import {
+  render,
+  screen,
+  waitForElementToBeRemoved,
+} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { store } from "../../redux/store";
@@ -52,6 +57,31 @@ describe("Given a MessagePage component", () => {
       )) as HTMLElement[];
 
       expect(icons).toHaveLength(2);
+    });
+  });
+
+  describe("When the user clicks on delete icon from message 'Hello!'", () => {
+    test("Then it should not display the message", async () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <MessagesPage />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const deleteIcons = (await screen.findAllByTestId(
+        "deleteIcon"
+      )) as HTMLElement[];
+      const messageDeleteIcon = deleteIcons[0];
+
+      const message = screen.getByText(/hello!/i);
+
+      userEvent.click(messageDeleteIcon);
+
+      await waitForElementToBeRemoved(() => screen.queryByText(/hello!/i));
+
+      expect(message).not.toBeInTheDocument();
     });
   });
 });
