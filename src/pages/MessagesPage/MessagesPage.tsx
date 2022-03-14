@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import Loader from "../../components/Loader/Loader";
 import MessageCard from "../../components/Message/MessageCard";
 import MessageForm from "../../components/MessageForm/MessageForm";
 import Navigation from "../../components/Navigation/Navigation";
@@ -53,6 +54,7 @@ const MessagesPage = (): JSX.Element => {
         <HeaderImage src="images/pexels-photo-2613260.jpeg" alt="girl photo" />
         <p>Selia</p>
       </Header>
+      {!messages.length && <Loader />}
       <MessagesContainer>
         <ul>
           {messages.map((message) => (
