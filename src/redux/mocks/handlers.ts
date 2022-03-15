@@ -30,6 +30,11 @@ export const handlers = [
     (req, res, ctx) => res(ctx.status(200))
   ),
 
+  rest.delete(
+    `${process.env.REACT_APP_API_FINDME}messages/delete/2`,
+    (req, res, ctx) => res(ctx.status(404))
+  ),
+
   rest.post(
     `${process.env.REACT_APP_API_FINDME}messages/create`,
     (req, res, ctx) => {
