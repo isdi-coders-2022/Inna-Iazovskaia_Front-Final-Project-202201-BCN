@@ -14,7 +14,7 @@ const MessageContainer = styled.li`
   .page_icon {
     color: white;
     margin-left: 15px;
-    font-size: 20px;
+    font-size: 19px;
   }
 `;
 
@@ -23,9 +23,9 @@ const MessageText = styled.p`
   width: 210px;
   background-color: rgba(237, 1, 127, 1);
   border-radius: 20px;
-  padding: 15px;
+  padding: 10px;
   margin-bottom: 10px;
-  font-size: 18px;
+  font-size: 16px;
 `;
 
 const MessageCard = ({

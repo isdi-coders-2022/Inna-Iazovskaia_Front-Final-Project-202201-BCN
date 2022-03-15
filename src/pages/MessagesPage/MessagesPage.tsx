@@ -4,14 +4,31 @@ import styled from "styled-components";
 import Loader from "../../components/Loader/Loader";
 import MessageCard from "../../components/Message/MessageCard";
 import MessageForm from "../../components/MessageForm/MessageForm";
-import Navigation from "../../components/Navigation/Navigation";
 import { RootState } from "../../redux/store";
 import {
   deleteMessageThunk,
   loadMessagesThunk,
 } from "../../redux/thunks/messagesThunks";
 
-const Header = styled.header`
+const PageContainer = styled.div`
+  @media (min-width: 600px) {
+    padding-top: 95px;
+  }
+`;
+
+const ChatContainer = styled.div`
+  padding-top: 20vh;
+  padding-bottom: 75px;
+  display: flex;
+  display: grid;
+  place-items: center;
+  overflow: auto;
+`;
+
+const ChatHeader = styled.div`
+  position: fixed;
+  margin-top: 0;
+  background-color: black;
   width: 100vw;
   height: 18vh;
   display: flex;
@@ -31,10 +48,12 @@ const HeaderImage = styled.img`
   border-radius: 50%;
 `;
 
-const MessagesContainer = styled.section`
+const ChatBody = styled.section`
   display: flex;
   flex-direction: column;
 `;
+
+const ChatFooter = styled.section``;
 
 const MessagesPage = (): JSX.Element => {
   const messages = useSelector((state: RootState) => state.messages);
@@ -49,28 +68,31 @@ const MessagesPage = (): JSX.Element => {
   };
 
   return (
-    <>
-      <Header>
+    <PageContainer>
+      <ChatHeader>
         <HeaderImage src="images/pexels-photo-2613260.jpeg" alt="girl photo" />
         <p>Selia</p>
-      </Header>
-      {!messages.length && <Loader />}
-      <MessagesContainer>
-        <ul>
-          {messages.map((message) => (
-            <MessageCard
-              message={message}
-              key={message.id}
-              actionOnClick={() => {
-                deleteMessage(message.id);
-              }}
-            />
-          ))}
-        </ul>
-      </MessagesContainer>
-      <MessageForm />
-      <Navigation />
-    </>
+      </ChatHeader>
+      <ChatContainer>
+        {!messages.length && <Loader />}
+        <ChatBody>
+          <ul>
+            {messages.map((message) => (
+              <MessageCard
+                message={message}
+                key={message.id}
+                actionOnClick={() => {
+                  deleteMessage(message.id);
+                }}
+              />
+            ))}
+          </ul>
+        </ChatBody>
+      </ChatContainer>
+      <ChatFooter>
+        <MessageForm />
+      </ChatFooter>
+    </PageContainer>
   );
 };
 

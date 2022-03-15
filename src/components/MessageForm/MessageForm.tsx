@@ -8,6 +8,11 @@ const Form = styled.form`
   justify-content: center;
 
   button {
+    background-color: black;
+    color: white;
+    border: none;
+    margin-left: 5px;
+
     @media (max-width: 600px) {
       display: none;
     }
@@ -15,7 +20,7 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-  width: 315px;
+  width: 250px;
   height: 35px;
   border-radius: 20px;
 `;
