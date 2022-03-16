@@ -18,27 +18,34 @@ const PageContainer = styled.div`
 
 const ChatContainer = styled.div`
   padding-top: 20vh;
-  padding-bottom: 75px;
-  display: flex;
-  display: grid;
-  place-items: center;
-  overflow: auto;
-`;
-
-const ChatHeader = styled.div`
-  position: fixed;
-  margin-top: 0;
-  background-color: black;
-  width: 100vw;
-  height: 18vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+  height: 440px;
+`;
+
+const ChatHeader = styled.div`
+  padding: 10px;
+  position: fixed;
+  margin-top: 0;
+  background-color: black;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
 
   p {
     color: white;
     margin-left: 15px;
     font-size: 25px;
+  }
+
+  @media (min-width: 600px) {
+    justify-content: center;
   }
 `;
 
@@ -51,6 +58,10 @@ const HeaderImage = styled.img`
 const ChatBody = styled.section`
   display: flex;
   flex-direction: column;
+
+  ul {
+    padding: 0;
+  }
 `;
 
 const ChatFooter = styled.section``;
