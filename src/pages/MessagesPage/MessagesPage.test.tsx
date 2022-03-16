@@ -12,6 +12,7 @@ import MessagesPage from "./MessagesPage";
 describe("Given a MessagePage component", () => {
   describe("When it receives 2 messages 'Hello!' and 'How are you?'", () => {
     test("Then it should display the messages and 2 icons", async () => {
+      Element.prototype.scrollIntoView = jest.fn();
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -28,6 +29,7 @@ describe("Given a MessagePage component", () => {
     });
 
     test("Then it should display 2 delete icons", async () => {
+      Element.prototype.scrollIntoView = jest.fn();
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -46,6 +48,7 @@ describe("Given a MessagePage component", () => {
 
   describe("When the user clicks on delete icon from message 'Hello!'", () => {
     test("Then it should not display the message", async () => {
+      Element.prototype.scrollIntoView = jest.fn();
       render(
         <BrowserRouter>
           <Provider store={store}>

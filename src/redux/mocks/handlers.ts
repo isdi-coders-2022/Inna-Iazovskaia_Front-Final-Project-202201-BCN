@@ -52,16 +52,16 @@ export const handlers = [
   ),
 
   rest.put(
-    `${process.env.REACT_APP_API_FINDME}messages/update/1`,
+    `${process.env.REACT_APP_API_FINDME}messages/update/125`,
     (req, res, ctx) => {
       return res(
-        ctx.status(201),
+        ctx.status(200),
         ctx.json({
           date: "",
-          text: "I am fine.",
+          text: "sorry",
           sender: "",
           recipient: "",
-          id: "1",
+          id: "125",
         })
       );
     }

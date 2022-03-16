@@ -1,7 +1,9 @@
+import actionsTypes from "../actions/actionsTypes";
 import {
   createMessageThunk,
   deleteMessageThunk,
   loadMessagesThunk,
+  updateMessageThunk,
 } from "./messagesThunks";
 
 describe("Civen a loadMessagesThunk function", () => {
@@ -59,7 +61,7 @@ describe("Given a createMessageThunk function", () => {
       };
       const dispatch = jest.fn();
       const expectedAction = {
-        type: "create-message",
+        type: actionsTypes.createMessage,
         message: message,
       };
 
@@ -68,6 +70,26 @@ describe("Given a createMessageThunk function", () => {
 
       expect(dispatch).toHaveBeenCalled();
       expect(dispatch).toHaveBeenCalledWith(expectedAction);
+    });
+  });
+});
+
+describe("Given a updateMessageThunk function", () => {
+  describe("When it's called with message 'I am fine.'", () => {
+    test("Then it should call dispatch and pass updateMessageAction", async () => {
+      const message = {
+        date: "",
+        text: "sorry",
+        sender: "",
+        recipient: "",
+        id: "125",
+      };
+      const dispatch = jest.fn();
+
+      const updateThunk = updateMessageThunk(message);
+      await updateThunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalled();
     });
   });
 });

@@ -5,6 +5,7 @@ import {
   loadMessagesAction,
 } from "../actions/actionsCreators";
 import { AnyAction, Dispatch } from "redux";
+import Message from "../../types/Message";
 
 export const loadMessagesThunk = async (
   dispatch: ThunkDispatch<void, unknown, AnyAction>
@@ -45,5 +46,23 @@ export const createMessageThunk =
     if (response.ok) {
       const newMessage = await response.json();
       dispatch(createMessageAction(newMessage));
+    }
+  };
+
+export const updateMessageThunk =
+  (message: Message) => async (dispatch: Dispatch) => {
+    const response = await fetch(
+      `${process.env.REACT_APP_API_FINDME}messages/update/${message.id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(message),
+      }
+    );
+    if (response.ok) {
+      const updatedMessage = await response.json();
+      dispatch(createMessageAction(updatedMessage));
     }
   };

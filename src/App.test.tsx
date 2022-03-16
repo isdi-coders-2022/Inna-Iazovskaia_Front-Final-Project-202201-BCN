@@ -7,6 +7,7 @@ import { store } from "./redux/store";
 describe("Given a App component", () => {
   describe("When it's rendered", () => {
     test("Then it should render nav", () => {
+      Element.prototype.scrollIntoView = jest.fn();
       render(
         <BrowserRouter>
           <Provider store={store}>
