@@ -15,3 +15,8 @@ export const createMessageAction = (message: Message) => ({
   type: actionsTypes.createMessage,
   message,
 });
+
+export const updateMessageAction = (id: string) => ({
+  type: actionsTypes.updateMessage,
+  id,
+});
