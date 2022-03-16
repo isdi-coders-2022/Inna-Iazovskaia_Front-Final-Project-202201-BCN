@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Loader from "../../components/Loader/Loader";
@@ -17,7 +17,7 @@ const PageContainer = styled.div`
 `;
 
 const ChatContainer = styled.div`
-  padding-top: 20vh;
+  padding-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,12 +25,11 @@ const ChatContainer = styled.div`
   ::-webkit-scrollbar {
     width: 0;
   }
-  height: 440px;
+  height: 400px;
 `;
 
 const ChatHeader = styled.div`
   padding: 10px;
-  position: fixed;
   margin-top: 0;
   background-color: black;
   width: 100%;
@@ -61,14 +60,22 @@ const ChatBody = styled.section`
 
   ul {
     padding: 0;
+    height: 400px;
   }
 `;
-
-const ChatFooter = styled.section``;
 
 const MessagesPage = (): JSX.Element => {
   const messages = useSelector((state: RootState) => state.messages);
   const dispatch = useDispatch();
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef?.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+  useEffect(scrollToBottom, [messages]);
 
   useEffect(() => {
     dispatch(loadMessagesThunk);
@@ -98,11 +105,10 @@ const MessagesPage = (): JSX.Element => {
               />
             ))}
           </ul>
+          <div ref={messagesEndRef} />
         </ChatBody>
       </ChatContainer>
-      <ChatFooter>
-        <MessageForm />
-      </ChatFooter>
+      <MessageForm />
     </PageContainer>
   );
 };
