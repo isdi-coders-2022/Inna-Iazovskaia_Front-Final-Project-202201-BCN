@@ -16,7 +16,7 @@ export const createMessageAction = (message: Message) => ({
   message,
 });
 
-export const updateMessageAction = (id: string) => ({
+export const updateMessageAction = (message: Message) => ({
   type: actionsTypes.updateMessage,
-  id,
+  message,
 });
