@@ -23,6 +23,14 @@ const messagesReducer = (
       newMessages = [...currentMessages, action.message];
       break;
 
+    case actionsTypes.updateMessage:
+      newMessages = currentMessages.map((message) =>
+        message.id === action.message.id
+          ? { ...action.message }
+          : { ...message }
+      );
+      break;
+
     default:
       newMessages = [...currentMessages];
   }
