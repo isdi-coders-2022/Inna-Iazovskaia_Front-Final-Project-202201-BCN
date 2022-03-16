@@ -4,6 +4,7 @@ import {
   loadMessagesAction,
   updateMessageAction,
 } from "./actionsCreators";
+import actionsTypes from "./actionsTypes";
 
 describe("Given a loadMessagesAction", () => {
   describe("When it receives messages 'Helo!' and 'How are you?'", () => {
@@ -25,7 +26,7 @@ describe("Given a loadMessagesAction", () => {
         },
       ];
       const expectedAction = {
-        type: "load-messages",
+        type: actionsTypes.loadMessages,
         messages: messages,
       };
 
@@ -41,7 +42,7 @@ describe("Given a deleteMessageAction", () => {
     test("Then it should return delete-message action with the id", () => {
       const id = "sdlkjfkasjd";
       const expectedAction = {
-        type: "delete-message",
+        type: actionsTypes.deleteMessage,
         id: id,
       };
 
@@ -63,7 +64,7 @@ describe("Given a createMessageAction", () => {
         id: "",
       };
       const expectedAction = {
-        type: "create-message",
+        type: actionsTypes.createMessage,
         message: message,
       };
 
@@ -76,13 +77,19 @@ describe("Given a createMessageAction", () => {
   describe("Given a updateMessageAction", () => {
     describe("When it receives id 1", () => {
       test("Then it should return update-message action with the message id", async () => {
-        const id = "1";
+        const message = {
+          date: "",
+          text: "I am fine.",
+          sender: "",
+          recipient: "",
+          id: "1",
+        };
         const expectedAction = {
-          type: "update-message",
-          id: id,
+          type: actionsTypes.updateMessage,
+          message,
         };
 
-        const action = updateMessageAction(id);
+        const action = updateMessageAction(message);
 
         expect(action).toEqual(expectedAction);
       });
