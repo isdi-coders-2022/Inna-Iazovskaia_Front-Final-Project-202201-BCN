@@ -1,3 +1,5 @@
+import { faPaperPlane } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
@@ -7,22 +9,34 @@ const Form = styled.form`
   display: flex;
   justify-content: center;
 
-  button {
-    background-color: black;
-    color: white;
+  .form_button {
+    color: gray;
     border: none;
-    margin-left: 5px;
-
-    @media (max-width: 600px) {
-      display: none;
-    }
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 0 20px 20px 0;
+    background: white;
   }
+
+  .form_button:hover {
+    font-size: 30px;
+  }
+`;
+
+const Border = styled.div`
+  border: 2px solid grey;
+  border-radius: 100px;
+  height: 50px;
+  display: flex;
+  background-color: white;
+  align-items: center;
 `;
 
 const Input = styled.input`
   width: 250px;
   height: 35px;
-  border-radius: 20px;
+  border-radius: 20px 0 0 20px;
+  border: none;
 `;
 
 const MessageForm = (): JSX.Element => {
@@ -50,17 +64,19 @@ const MessageForm = (): JSX.Element => {
 
   return (
     <Form onSubmit={onSubmit} autoComplete="off" noValidate ref={form}>
-      <Input
-        name="text"
-        type="text"
-        id="text"
-        placeholder="Message"
-        value={formData.text}
-        onChange={handleChange}
-      />
-      <button className="form_button" type="submit">
-        send
-      </button>
+      <Border>
+        <Input
+          name="text"
+          type="text"
+          id="text"
+          placeholder="Message..."
+          value={formData.text}
+          onChange={handleChange}
+        />
+        <button className="form_button" type="submit">
+          <FontAwesomeIcon className="send_icon" icon={faPaperPlane} />
+        </button>
+      </Border>
     </Form>
   );
 };
