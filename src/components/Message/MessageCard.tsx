@@ -15,6 +15,11 @@ const MessageContainer = styled.li`
     color: white;
     margin-left: 15px;
     font-size: 19px;
+    cursor: pointer;
+  }
+
+  .page_icon:hover {
+    font-size: 25px;
   }
 `;
 
