@@ -1,4 +1,5 @@
 import Message from "../../types/Message";
+import actionsTypes from "../actions/actionsTypes";
 import messagesReducer from "./messagesReducer";
 
 describe("Given a messagesReducer function", () => {
@@ -20,7 +21,7 @@ describe("Given a messagesReducer function", () => {
         },
       ];
       const action = {
-        type: "load-messages",
+        type: actionsTypes.loadMessages,
         messages: messages,
       };
 
@@ -61,7 +62,7 @@ describe("Given a messagesReducer function", () => {
         },
       ];
       const action = {
-        type: "delete-message",
+        type: actionsTypes.deleteMessage,
         id: currentMessages[0].id,
       };
 
@@ -107,7 +108,7 @@ describe("Given a messagesReducer function", () => {
         id: "3",
       };
       const action = {
-        type: "create-message",
+        type: actionsTypes.createMessage,
         message: newMessage,
       };
       const expectedMessages = [
@@ -137,6 +138,42 @@ describe("Given a messagesReducer function", () => {
       const messages = messagesReducer(currentMessages, action);
 
       expect(messages).toEqual(expectedMessages);
+    });
+  });
+
+  describe("When it receives current messages and update-messages action with id of one fo the current messages", () => {
+    test("Then it should return the messages with updated message", () => {
+      const currentMessages = [
+        {
+          date: "",
+          text: "Hello!",
+          sender: "",
+          recipient: "",
+          id: "1",
+        },
+        {
+          date: "",
+          text: "How are you?",
+          sender: "",
+          recipient: "",
+          id: "2",
+        },
+      ];
+      const messageToUpdate = {
+        date: "",
+        text: "I am fine",
+        sender: "",
+        recipient: "",
+        id: "1",
+      };
+      const action = {
+        type: actionsTypes.updateMessage,
+        message: messageToUpdate,
+      };
+
+      const messages = messagesReducer(currentMessages, action);
+
+      expect(messages[0].text).toBe(messageToUpdate.text);
     });
   });
 });
