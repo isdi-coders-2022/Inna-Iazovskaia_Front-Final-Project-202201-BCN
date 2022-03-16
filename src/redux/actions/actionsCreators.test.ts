@@ -2,6 +2,7 @@ import {
   createMessageAction,
   deleteMessageAction,
   loadMessagesAction,
+  updateMessageAction,
 } from "./actionsCreators";
 
 describe("Given a loadMessagesAction", () => {
@@ -69,6 +70,22 @@ describe("Given a createMessageAction", () => {
       const action = createMessageAction(message);
 
       expect(action).toEqual(expectedAction);
+    });
+  });
+
+  describe("Given a updateMessageAction", () => {
+    describe("When it receives id 1", () => {
+      test("Then it should return update-message action with the message id", async () => {
+        const id = "1";
+        const expectedAction = {
+          type: "update-message",
+          id: id,
+        };
+
+        const action = updateMessageAction(id);
+
+        expect(action).toEqual(expectedAction);
+      });
     });
   });
 });

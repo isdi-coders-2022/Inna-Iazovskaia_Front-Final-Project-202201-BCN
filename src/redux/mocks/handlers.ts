@@ -50,4 +50,20 @@ export const handlers = [
       );
     }
   ),
+
+  rest.put(
+    `${process.env.REACT_APP_API_FINDME}messages/update/1`,
+    (req, res, ctx) => {
+      return res(
+        ctx.status(201),
+        ctx.json({
+          date: "",
+          text: "I am fine.",
+          sender: "",
+          recipient: "",
+          id: "1",
+        })
+      );
+    }
+  ),
 ];
