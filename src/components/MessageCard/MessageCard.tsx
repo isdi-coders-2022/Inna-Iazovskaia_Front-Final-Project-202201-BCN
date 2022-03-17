@@ -39,6 +39,7 @@ const MessageCard = ({
   actionOnClick,
 }: MessageCardProps): JSX.Element => {
   const navigate = useNavigate();
+
   const goToUpdatePage = (id: string) => {
     navigate(`/update-message/${id}`);
   };
