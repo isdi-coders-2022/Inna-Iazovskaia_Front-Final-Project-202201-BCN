@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import { store } from "../../redux/store";
 import MessageCard from "./MessageCard";
 import userEvent from "@testing-library/user-event";
+import { BrowserRouter } from "react-router-dom";
 
 describe("Given a Message component", () => {
   describe("When it's receives message with 'Hello' as text", () => {
@@ -17,12 +18,14 @@ describe("Given a Message component", () => {
       const actionOnClick = jest.fn();
 
       render(
-        <Provider store={store}>
-          <MessageCard
-            message={receivedMessage}
-            actionOnClick={actionOnClick}
-          />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <MessageCard
+              message={receivedMessage}
+              actionOnClick={actionOnClick}
+            />
+          </Provider>
+        </BrowserRouter>
       );
       const expectedText = screen.getByText(receivedMessage.text);
       const listItem = screen.getByRole("listitem");
@@ -46,12 +49,14 @@ describe("Given a Message component", () => {
       const actionOnClick = jest.fn();
 
       render(
-        <Provider store={store}>
-          <MessageCard
-            message={receivedMessage}
-            actionOnClick={actionOnClick}
-          />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <MessageCard
+              message={receivedMessage}
+              actionOnClick={actionOnClick}
+            />
+          </Provider>
+        </BrowserRouter>
       );
 
       const deleteIcon = screen.queryByTestId("deleteIcon") as HTMLElement;

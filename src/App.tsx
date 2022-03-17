@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
 import MessagesPage from "./pages/MessagesPage/MessagesPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import UpdateMessagePage from "./pages/UpdateMessagePage/UpdateMessagePage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/home" element={<NotFoundPage />} />
           <Route path="/profile" element={<NotFoundPage />} />
           <Route path="/conversations" element={<MessagesPage />} />
+          <Route path="/update-message/:id" element={<UpdateMessagePage />} />
         </Routes>
       </main>
     </>

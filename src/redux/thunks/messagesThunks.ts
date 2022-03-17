@@ -7,6 +7,7 @@ import {
 } from "../actions/actionsCreators";
 import { AnyAction, Dispatch } from "redux";
 import Message from "../../types/Message";
+import { NavigateFunction } from "react-router-dom";
 
 export const loadMessagesThunk = async (
   dispatch: ThunkDispatch<void, unknown, AnyAction>
@@ -51,7 +52,8 @@ export const createMessageThunk =
   };
 
 export const updateMessageThunk =
-  (message: Message) => async (dispatch: Dispatch) => {
+  (message: Message, navigate: NavigateFunction) =>
+  async (dispatch: Dispatch) => {
     const response = await fetch(
       `${process.env.REACT_APP_API_FINDME}messages/update/${message.id}`,
       {
@@ -65,5 +67,6 @@ export const updateMessageThunk =
     if (response.ok) {
       const updatedMessage = await response.json();
       dispatch(updateMessageAction(updatedMessage));
+      navigate("/conversations");
     }
   };
