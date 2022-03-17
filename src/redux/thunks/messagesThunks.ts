@@ -3,6 +3,7 @@ import {
   createMessageAction,
   deleteMessageAction,
   loadMessagesAction,
+  updateMessageAction,
 } from "../actions/actionsCreators";
 import { AnyAction, Dispatch } from "redux";
 import Message from "../../types/Message";
@@ -63,6 +64,6 @@ export const updateMessageThunk =
     );
     if (response.ok) {
       const updatedMessage = await response.json();
-      dispatch(createMessageAction(updatedMessage));
+      dispatch(updateMessageAction(updatedMessage));
     }
   };
