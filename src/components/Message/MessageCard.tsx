@@ -1,7 +1,8 @@
 import Message from "../../types/Message";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faPencil, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 interface MessageCardProps {
   message: Message;
   actionOnClick: React.MouseEventHandler<SVGSVGElement>;
@@ -37,6 +38,11 @@ const MessageCard = ({
   message: { text, id },
   actionOnClick,
 }: MessageCardProps): JSX.Element => {
+  const navigate = useNavigate();
+  const goToUpdatePage = (id: string) => {
+    navigate(`/update-message/${id}`);
+  };
+
   return (
     <MessageContainer>
       <MessageText>{text}</MessageText>
@@ -45,6 +51,14 @@ const MessageCard = ({
         icon={faTrashCan}
         onClick={actionOnClick}
         data-testid="deleteIcon"
+      />
+      <FontAwesomeIcon
+        className="page_icon"
+        icon={faPencil}
+        onClick={() => {
+          goToUpdatePage(id);
+        }}
+        data-testid="updateIcon"
       />
     </MessageContainer>
   );
