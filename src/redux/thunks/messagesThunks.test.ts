@@ -85,11 +85,16 @@ describe("Given a updateMessageThunk function", () => {
         id: "125",
       };
       const dispatch = jest.fn();
+      const expectedAction = {
+        type: actionsTypes.updateMessage,
+        message: message,
+      };
 
       const updateThunk = updateMessageThunk(message);
       await updateThunk(dispatch);
 
       expect(dispatch).toHaveBeenCalled();
+      expect(dispatch).toHaveBeenCalledWith(expectedAction);
     });
   });
 });
