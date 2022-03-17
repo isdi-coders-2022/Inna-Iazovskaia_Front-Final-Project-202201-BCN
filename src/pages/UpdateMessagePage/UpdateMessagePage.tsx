@@ -76,7 +76,7 @@ const UpdateMessagePage = (): JSX.Element => {
 
   return (
     <PageContainer>
-      <p>Correct the message</p>
+      <p>Edit the message</p>
       <Form onSubmit={onSubmit} autoComplete="off" noValidate>
         <Text
           name="text"
