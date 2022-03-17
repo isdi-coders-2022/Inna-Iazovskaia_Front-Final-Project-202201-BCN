@@ -88,7 +88,7 @@ const Navigation = (): JSX.Element => {
       <ul className="navigation_list">
         <NavigationItem className="navigation_item logo">
           <Link className="navigation-text-container" to="/home">
-            <img src="logo.svg" alt="fimd-me logo" />
+            <img src="/logo.svg" alt="fimd-me logo" />
             <span className="navigation__text">Find me</span>
           </Link>
         </NavigationItem>

@@ -36,13 +36,11 @@ const ChatHeader = styled.div`
   height: 100px;
   display: flex;
   align-items: center;
-
   p {
     color: white;
     margin-left: 15px;
     font-size: 25px;
   }
-
   @media (min-width: 600px) {
     justify-content: center;
   }
@@ -57,7 +55,6 @@ const HeaderImage = styled.img`
 const ChatBody = styled.section`
   display: flex;
   flex-direction: column;
-
   ul {
     padding: 0;
     height: 400px;
@@ -88,7 +85,7 @@ const MessagesPage = (): JSX.Element => {
   return (
     <PageContainer>
       <ChatHeader>
-        <HeaderImage src="images/pexels-photo-2613260.jpeg" alt="girl photo" />
+        <HeaderImage src="/images/pexels-photo-2613260.jpeg" alt="girl photo" />
         <p>Selia</p>
       </ChatHeader>
       <ChatContainer>
