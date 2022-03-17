@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Loader from "../../components/Loader/Loader";
-import MessageCard from "../../components/Message/MessageCard";
+import MessageCard from "../../components/MessageCard/MessageCard";
 import MessageForm from "../../components/MessageForm/MessageForm";
 import { RootState } from "../../redux/store";
 import {
