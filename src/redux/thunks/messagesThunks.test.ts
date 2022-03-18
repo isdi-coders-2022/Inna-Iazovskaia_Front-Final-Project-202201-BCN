@@ -72,6 +72,20 @@ describe("Given a createMessageThunk function", () => {
       expect(dispatch).toHaveBeenCalledWith(expectedAction);
     });
   });
+
+  describe("When it's called with not valid data", () => {
+    test("Then it shouldn't call dispatch", async () => {
+      const message = {
+        text: "I am not fine.",
+      };
+      const dispatch = jest.fn();
+
+      const createThunk = createMessageThunk(message);
+      await createThunk(dispatch);
+
+      expect(dispatch).not.toBeCalled();
+    });
+  });
 });
 
 describe("Given a updateMessageThunk function", () => {
@@ -96,6 +110,25 @@ describe("Given a updateMessageThunk function", () => {
 
       expect(dispatch).toHaveBeenCalled();
       expect(dispatch).toHaveBeenCalledWith(expectedAction);
+    });
+  });
+
+  describe("When it's called with not valid data", () => {
+    test("Then it shouldn't call dispatch", async () => {
+      const message = {
+        date: "",
+        text: "I am fine.",
+        sender: "",
+        recipient: "",
+        id: "3",
+      };
+      const dispatch = jest.fn();
+      const navigate = jest.fn();
+
+      const updateThunk = updateMessageThunk(message, navigate);
+      await updateThunk(dispatch);
+
+      expect(dispatch).not.toBeCalled();
     });
   });
 });
