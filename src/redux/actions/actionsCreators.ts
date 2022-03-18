@@ -20,3 +20,8 @@ export const updateMessageAction = (message: Message) => ({
   type: actionsTypes.updateMessage,
   message,
 });
+
+export const loadCurrentMessageAction = (message: Message) => ({
+  type: actionsTypes.loadCurrentMessage,
+  message,
+});
