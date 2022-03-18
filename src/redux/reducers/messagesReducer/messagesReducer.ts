@@ -1,6 +1,6 @@
 import { AnyAction } from "redux";
-import Message from "../../types/Message";
-import actionsTypes from "../actions/actionsTypes";
+import Message from "../../../types/Message";
+import actionsTypes from "../../actions/actionsTypes";
 
 const messagesReducer = (
   currentMessages: Message[] = [],

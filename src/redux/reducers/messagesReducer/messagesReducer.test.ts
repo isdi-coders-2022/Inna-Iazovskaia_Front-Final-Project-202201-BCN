@@ -1,5 +1,5 @@
-import Message from "../../types/Message";
-import actionsTypes from "../actions/actionsTypes";
+import Message from "../../../types/Message";
+import actionsTypes from "../../actions/actionsTypes";
 import messagesReducer from "./messagesReducer";
 
 describe("Given a messagesReducer function", () => {
@@ -31,12 +31,13 @@ describe("Given a messagesReducer function", () => {
     });
   });
 
-  describe("When it doesn't receives messages and action", () => {
+  describe("When it doesn't receive messages and action", () => {
     test("Then it should return []", () => {
       const currentMessages = undefined;
       const action = {
         type: "",
       };
+
       const messages = messagesReducer(currentMessages, action);
 
       expect(messages).toHaveLength(0);
@@ -65,7 +66,6 @@ describe("Given a messagesReducer function", () => {
         type: actionsTypes.deleteMessage,
         id: currentMessages[0].id,
       };
-
       const expectedMessages = [
         {
           date: "",
