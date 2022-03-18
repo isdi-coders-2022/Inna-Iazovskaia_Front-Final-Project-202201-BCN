@@ -1,6 +1,7 @@
 import {
   createMessageAction,
   deleteMessageAction,
+  loadCurrentMessageAction,
   loadMessagesAction,
   updateMessageAction,
 } from "./actionsCreators";
@@ -75,8 +76,8 @@ describe("Given a createMessageAction", () => {
   });
 
   describe("Given a updateMessageAction", () => {
-    describe("When it receives id 1", () => {
-      test("Then it should return update-message action with the message id", async () => {
+    describe("When it receives new message 'I am fine.'", () => {
+      test("Then it should return update-message action with the message", async () => {
         const message = {
           date: "",
           text: "I am fine.",
@@ -93,6 +94,28 @@ describe("Given a createMessageAction", () => {
 
         expect(action).toEqual(expectedAction);
       });
+    });
+  });
+});
+
+describe("Civen a loadCurrentMessageAction", () => {
+  describe("When it receives message 'I am fine'", () => {
+    test("Then it should retern load current message actin with the message 'I am fine'", () => {
+      const message = {
+        date: "",
+        text: "I am fine.",
+        sender: "",
+        recipient: "",
+        id: "1",
+      };
+      const expectedAction = {
+        type: actionsTypes.loadCurrentMessage,
+        message,
+      };
+
+      const action = loadCurrentMessageAction(message);
+
+      expect(action).toEqual(expectedAction);
     });
   });
 });
