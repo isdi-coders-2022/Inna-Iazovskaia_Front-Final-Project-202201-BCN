@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import { createMessageThunk } from "../../redux/thunks/messagesThunks";
+import { createMessageThunk } from "../../redux/thunks/messagesThunks/messagesThunks";
 
 const Form = styled.form`
   display: flex;

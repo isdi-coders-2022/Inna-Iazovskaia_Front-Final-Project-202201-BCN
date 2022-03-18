@@ -2,11 +2,12 @@ import { ThunkDispatch } from "redux-thunk";
 import {
   createMessageAction,
   deleteMessageAction,
+  loadCurrentMessageAction,
   loadMessagesAction,
   updateMessageAction,
-} from "../actions/actionsCreators";
+} from "../../actions/actionsCreators";
 import { AnyAction, Dispatch } from "redux";
-import Message from "../../types/Message";
+import Message from "../../../types/Message";
 import { NavigateFunction } from "react-router-dom";
 
 export const loadMessagesThunk = async (
@@ -69,4 +70,14 @@ export const updateMessageThunk =
       dispatch(updateMessageAction(updatedMessage));
       navigate("/conversations");
     }
+  };
+
+export const loadCurrentProjectThunk =
+  (message: Message) => async (dispatch: Dispatch) => {
+    const response = await fetch(
+      `${process.env.REACT_APP_API_FINDME}messages/${message.id}`
+    );
+    const currentMessage = await response.json();
+
+    dispatch(loadCurrentMessageAction(currentMessage));
   };

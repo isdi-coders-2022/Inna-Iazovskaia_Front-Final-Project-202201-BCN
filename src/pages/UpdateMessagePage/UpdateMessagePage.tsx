@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { RootState } from "../../redux/store";
-import { updateMessageThunk } from "../../redux/thunks/messagesThunks";
+import { updateMessageThunk } from "../../redux/thunks/messagesThunks/messagesThunks";
 
 const PageContainer = styled.div`
   display: flex;

@@ -8,7 +8,7 @@ import { RootState } from "../../redux/store";
 import {
   deleteMessageThunk,
   loadMessagesThunk,
-} from "../../redux/thunks/messagesThunks";
+} from "../../redux/thunks/messagesThunks/messagesThunks";
 
 const PageContainer = styled.div`
   @media (min-width: 600px) {

@@ -1,7 +1,8 @@
-import actionsTypes from "../actions/actionsTypes";
+import actionsTypes from "../../actions/actionsTypes";
 import {
   createMessageThunk,
   deleteMessageThunk,
+  loadCurrentProjectThunk,
   loadMessagesThunk,
   updateMessageThunk,
 } from "./messagesThunks";
@@ -129,6 +130,26 @@ describe("Given a updateMessageThunk function", () => {
       await updateThunk(dispatch);
 
       expect(dispatch).not.toBeCalled();
+    });
+  });
+});
+
+describe("Civen a loadCurrentProjectThunk function", () => {
+  describe("When it's called", () => {
+    test("Then it should dispatch a function", async () => {
+      const message = {
+        date: "",
+        text: "Hello!",
+        sender: "",
+        recipient: "",
+        id: "153",
+      };
+      const dispatch = jest.fn();
+
+      const loadThunk = loadCurrentProjectThunk(message);
+      await loadThunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalled();
     });
   });
 });
