@@ -88,4 +88,21 @@ export const handlers = [
       }
     }
   ),
+
+  rest.get(`${process.env.REACT_APP_API_FINDME}messages/153`, (req, res, ctx) =>
+    res(
+      ctx.status(200),
+      ctx.json({
+        messages: [
+          {
+            date: "",
+            text: "Hello!",
+            sender: "",
+            recipient: "",
+            id: "153",
+          },
+        ],
+      })
+    )
+  ),
 ];
