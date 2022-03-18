@@ -33,4 +33,20 @@ describe("Givea a UpdateMessagePage component", () => {
       expect(mockDispatch).toHaveBeenCalled();
     });
   });
+
+  describe("When it's rendered", () => {
+    test("Then it should render textarea", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <UpdateMessagePage />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const text = screen.getByRole("textbox");
+
+      expect(text).toBeInTheDocument();
+    });
+  });
 });
