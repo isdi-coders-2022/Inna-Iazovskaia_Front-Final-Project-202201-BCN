@@ -66,7 +66,6 @@ export const handlers = [
     `${process.env.REACT_APP_API_FINDME}messages/update/:id`,
     (req, res, ctx) => {
       const id = req.params.id;
-      console.log(id);
       if (id === "125") {
         return res(
           ctx.status(200),
