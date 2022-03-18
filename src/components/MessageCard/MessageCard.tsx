@@ -32,6 +32,7 @@ const MessageText = styled.p`
   padding: 10px;
   margin-bottom: 10px;
   font-size: 16px;
+  overflow-wrap: break-word;
 `;
 
 const MessageCard = ({
