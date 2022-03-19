@@ -2,7 +2,7 @@ import actionsTypes from "../../actions/actionsTypes";
 import {
   createMessageThunk,
   deleteMessageThunk,
-  loadCurrentProjectThunk,
+  loadCurrentMessageThunk,
   loadMessagesThunk,
   updateMessageThunk,
 } from "./messagesThunks";
@@ -134,7 +134,7 @@ describe("Given a updateMessageThunk function", () => {
   });
 });
 
-describe("Civen a loadCurrentProjectThunk function", () => {
+describe("Civen a loadCurrentMessageThunk function", () => {
   describe("When it's called", () => {
     test("Then it should dispatch a function", async () => {
       const message = {
@@ -146,7 +146,7 @@ describe("Civen a loadCurrentProjectThunk function", () => {
       };
       const dispatch = jest.fn();
 
-      const loadThunk = loadCurrentProjectThunk(message);
+      const loadThunk = loadCurrentMessageThunk(message.id);
       await loadThunk(dispatch);
 
       expect(dispatch).toHaveBeenCalled();

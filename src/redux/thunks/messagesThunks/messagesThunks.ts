@@ -72,10 +72,10 @@ export const updateMessageThunk =
     }
   };
 
-export const loadCurrentProjectThunk =
-  (message: Message) => async (dispatch: Dispatch) => {
+export const loadCurrentMessageThunk =
+  (id: string) => async (dispatch: Dispatch) => {
     const response = await fetch(
-      `${process.env.REACT_APP_API_FINDME}messages/${message.id}`
+      `${process.env.REACT_APP_API_FINDME}messages/${id}`
     );
     const currentMessage = await response.json();
 
