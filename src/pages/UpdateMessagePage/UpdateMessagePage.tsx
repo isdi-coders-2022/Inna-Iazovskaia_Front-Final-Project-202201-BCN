@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { RootState } from "../../redux/store";
-import { updateMessageThunk } from "../../redux/thunks/messagesThunks/messagesThunks";
+import {
+  loadCurrentMessageThunk,
+  updateMessageThunk,
+} from "../../redux/thunks/messagesThunks/messagesThunks";
 
 const PageContainer = styled.div`
   display: flex;
@@ -36,7 +39,7 @@ const Text = styled.textarea`
   font-size: 20px;
   border-radius: 20px;
   width: 80vw;
-  height: 150px;
+  height: 300px;
   margin-bottom: 30px;
   overflow-y: scroll;
   ::-webkit-scrollbar {
@@ -60,13 +63,15 @@ const Button = styled.button`
 `;
 
 const UpdateMessagePage = (): JSX.Element => {
-  const params = useParams();
+  const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const messages = useSelector((state: RootState) => state.messages);
+  const messageToUpdate = useSelector((state: RootState) => state.message);
 
-  const messageToUpdate = messages.find((message) => message.id === params.id);
+  useEffect(() => {
+    dispatch(loadCurrentMessageThunk(id as string));
+  }, [dispatch, id]);
 
   const initialData = {
     text: messageToUpdate?.text as string,
