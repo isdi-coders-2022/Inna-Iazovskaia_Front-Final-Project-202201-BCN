@@ -9,9 +9,13 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 200px;
+  padding-top: 35px;
 
-  p {
+  @media (min-width: 600px) {
+    padding-top: 95px;
+  }
+
+  h3 {
     color: white;
     font-size: 30px;
     margin-bottom: 30px;
@@ -31,8 +35,17 @@ const Text = styled.textarea`
   padding: 10px;
   font-size: 20px;
   border-radius: 20px;
+  width: 80vw;
   height: 150px;
   margin-bottom: 30px;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+
+  @media (min-width: 600px) {
+    width: 300px;
+  }
 `;
 
 const Button = styled.button`
@@ -76,7 +89,7 @@ const UpdateMessagePage = (): JSX.Element => {
 
   return (
     <PageContainer>
-      <p>Edit the message</p>
+      <h3>Edit the message</h3>
       <Form onSubmit={onSubmit} autoComplete="off" noValidate>
         <Text
           name="text"
