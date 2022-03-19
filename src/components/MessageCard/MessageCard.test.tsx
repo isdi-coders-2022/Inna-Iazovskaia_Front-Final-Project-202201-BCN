@@ -98,4 +98,34 @@ describe("Given a Message component", () => {
       expect(mockNavigate).toHaveBeenCalledWith(expectedPath);
     });
   });
+
+  describe("When user click on message", () => {
+    test("Then it should navigate to DetailsMessagePage of the message", () => {
+      const receivedMessage = {
+        date: "",
+        text: "Hello!",
+        sender: "",
+        recipient: "",
+        id: "1",
+      };
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <MessageCard
+              message={receivedMessage}
+              actionOnClick={actionOnClick}
+            />
+          </Provider>
+        </BrowserRouter>
+      );
+      const expectedPath = `/message/${receivedMessage.id}`;
+
+      const clickedMessage = screen.queryByTestId(
+        "message-text"
+      ) as HTMLElement;
+      userEvent.click(clickedMessage);
+
+      expect(mockNavigate).toHaveBeenCalledWith(expectedPath);
+    });
+  });
 });
