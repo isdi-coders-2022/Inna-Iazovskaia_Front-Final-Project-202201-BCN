@@ -1,4 +1,5 @@
 import {
+  clearMessageDetailsAction,
   createMessageAction,
   deleteMessageAction,
   loadCurrentMessageAction,
@@ -114,6 +115,20 @@ describe("Civen a loadCurrentMessageAction", () => {
       };
 
       const action = loadCurrentMessageAction(message);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a clearMessageDetails action", () => {
+  describe("When it's invoked", () => {
+    test("Then it should return the action", () => {
+      const expectedAction = {
+        type: actionsTypes.clearMessageDetails,
+      };
+
+      const action = clearMessageDetailsAction();
 
       expect(action).toEqual(expectedAction);
     });
