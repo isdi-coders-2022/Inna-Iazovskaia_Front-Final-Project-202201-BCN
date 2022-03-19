@@ -53,7 +53,12 @@ const MessageCard = ({
 
   return (
     <MessageContainer>
-      <MessageText onClick={() => goToDetailsPage(id)}>{text}</MessageText>
+      <MessageText
+        data-testid="message-text"
+        onClick={() => goToDetailsPage(id)}
+      >
+        {text}
+      </MessageText>
       <FontAwesomeIcon
         className="page_icon"
         icon={faTrashCan}
