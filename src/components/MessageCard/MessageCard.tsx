@@ -1,4 +1,4 @@
-import Message from "../../types/Message";
+import { Message } from "../../types/Interfaces";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faTrashCan } from "@fortawesome/free-solid-svg-icons";

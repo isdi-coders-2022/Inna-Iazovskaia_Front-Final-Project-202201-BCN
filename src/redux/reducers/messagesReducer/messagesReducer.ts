@@ -1,5 +1,5 @@
 import { AnyAction } from "redux";
-import Message from "../../../types/Message";
+import { Message } from "../../../types/Interfaces";
 import actionsTypes from "../../actions/actionsTypes";
 
 const messagesReducer = (

@@ -1,4 +1,4 @@
-import Message from "../../../types/Message";
+import { Message } from "../../../types/Interfaces";
 import actionsTypes from "../../actions/actionsTypes";
 import messagesReducer from "./messagesReducer";
 

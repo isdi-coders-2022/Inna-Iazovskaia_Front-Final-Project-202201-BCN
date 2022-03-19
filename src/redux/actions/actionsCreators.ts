@@ -1,4 +1,4 @@
-import Message from "../../types/Message";
+import { Message } from "../../types/Interfaces";
 import actionsTypes from "./actionsTypes";
 
 export const loadMessagesAction = (messages: Message[]) => ({

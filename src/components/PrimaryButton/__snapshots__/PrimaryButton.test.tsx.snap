@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a PrimaryButton copmponent When it's rendered' Then it should always match this snapshot 1`] = `
+<button
+  className="sc-bdvvtL cuaeaL"
+>
+  
+</button>
+`;

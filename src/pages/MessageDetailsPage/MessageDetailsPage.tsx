@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
+import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 import Loader from "../../components/Loader/Loader";
 import { RootState } from "../../redux/store";
 import { loadCurrentMessageThunk } from "../../redux/thunks/messagesThunks/messagesThunks";
@@ -52,17 +53,6 @@ const Text = styled.section`
   }
 `;
 
-const Button = styled.button`
-  width: 80px;
-  background: rgba(94, 100, 255, 1);
-  border-radius: 15.5px;
-  border: none;
-  color: white;
-  width: 100px;
-  height: 50px;
-  font-size: 18px;
-`;
-
 const MessageDetailsPage = (): JSX.Element => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -101,7 +91,11 @@ const MessageDetailsPage = (): JSX.Element => {
           </p>
         </Text>
       )}
-      <Button onClick={() => goToConversationsPage()}>Go back</Button>
+      <PrimaryButton
+        actionOnClick={() => goToConversationsPage()}
+        className=""
+        text="Go back"
+      />
     </PageContainer>
   );
 };
