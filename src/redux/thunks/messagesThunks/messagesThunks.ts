@@ -7,7 +7,7 @@ import {
   updateMessageAction,
 } from "../../actions/actionsCreators";
 import { AnyAction, Dispatch } from "redux";
-import Message from "../../../types/Message";
+import { Message } from "../../../types/Interfaces";
 import { NavigateFunction } from "react-router-dom";
 
 export const loadMessagesThunk = async (

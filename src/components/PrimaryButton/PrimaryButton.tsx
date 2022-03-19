@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ButtonInterface } from "../../types/Message";
+import { ButtonInterface } from "../../types/Interfaces";
 
 const Button = styled.button`
   background: rgba(94, 100, 255, 1);
