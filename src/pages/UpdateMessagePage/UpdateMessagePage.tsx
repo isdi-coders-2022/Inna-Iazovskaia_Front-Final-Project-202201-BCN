@@ -74,11 +74,11 @@ const UpdateMessagePage = (): JSX.Element => {
   }, [dispatch, id]);
 
   const initialData = {
-    text: messageToUpdate?.text as string,
-    date: messageToUpdate?.date as string,
-    sender: messageToUpdate?.sender as string,
-    recipient: messageToUpdate?.recipient as string,
-    id: messageToUpdate?.id as string,
+    text: messageToUpdate.text as string,
+    date: messageToUpdate.date as string,
+    sender: messageToUpdate.sender as string,
+    recipient: messageToUpdate.recipient as string,
+    id: messageToUpdate.id as string,
   };
 
   const [formData, setFormData] = useState(initialData);
