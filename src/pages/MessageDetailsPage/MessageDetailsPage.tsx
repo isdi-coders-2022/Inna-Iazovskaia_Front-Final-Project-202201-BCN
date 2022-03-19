@@ -64,8 +64,6 @@ const MessageDetailsPage = (): JSX.Element => {
     dispatch(loadCurrentMessageThunk(id as string));
   }, [dispatch, id]);
 
-  console.log(currentMessage);
-
   const goToConversationsPage = () => {
     navigate("/conversations");
   };
