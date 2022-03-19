@@ -25,3 +25,7 @@ export const loadCurrentMessageAction = (message: Message) => ({
   type: actionsTypes.loadCurrentMessage,
   message,
 });
+
+export const clearMessageDetailsAction = () => ({
+  type: actionsTypes.clearMessageDetails,
+});
