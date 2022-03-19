@@ -43,12 +43,12 @@ const MessageCard = ({
 }: MessageCardProps): JSX.Element => {
   const navigate = useNavigate();
 
-  const goToUpdatePage = (id: string) => {
-    navigate(`/update-message/${id}`);
+  const goToUpdatePage = (messageId: string) => {
+    navigate(`/update-message/${messageId}`);
   };
 
-  const goToDetailsPage = (id: string) => {
-    navigate(`/message/${id}`);
+  const goToDetailsPage = (messageId: string) => {
+    navigate(`/message/${messageId}`);
   };
 
   return (
