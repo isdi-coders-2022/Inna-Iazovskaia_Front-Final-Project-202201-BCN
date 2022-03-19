@@ -33,6 +33,8 @@ const MessageText = styled.p`
   margin-bottom: 10px;
   font-size: 16px;
   overflow-wrap: break-word;
+  display: flex;
+  cursor: pointer;
 `;
 
 const MessageCard = ({
@@ -45,9 +47,13 @@ const MessageCard = ({
     navigate(`/update-message/${id}`);
   };
 
+  const goToDetailsPage = (id: string) => {
+    navigate(`/message/${id}`);
+  };
+
   return (
     <MessageContainer>
-      <MessageText>{text}</MessageText>
+      <MessageText onClick={() => goToDetailsPage(id)}>{text}</MessageText>
       <FontAwesomeIcon
         className="page_icon"
         icon={faTrashCan}
