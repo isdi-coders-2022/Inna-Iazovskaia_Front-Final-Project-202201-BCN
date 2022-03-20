@@ -43,7 +43,6 @@ const MessageForm = (): JSX.Element => {
   const dispatch = useDispatch();
   const initialData = {
     text: "",
-    id: "",
   };
   const form = useRef(null);
   const [formData, setFormData] = useState(initialData);
