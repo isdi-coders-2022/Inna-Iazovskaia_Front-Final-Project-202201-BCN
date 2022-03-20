@@ -6,6 +6,7 @@ import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 import Loader from "../../components/Loader/Loader";
 import { RootState } from "../../redux/store";
 import { loadCurrentMessageThunk } from "../../redux/thunks/messagesThunks/messagesThunks";
+import { clearMessageDetailsAction } from "../../redux/actions/actionsCreators";
 
 const PageContainer = styled.div`
   display: flex;
@@ -61,7 +62,11 @@ const MessageDetailsPage = (): JSX.Element => {
   const currentMessage = useSelector((state: RootState) => state.message);
 
   useEffect(() => {
+    const cleanMessage = () => {
+      dispatch(clearMessageDetailsAction());
+    };
     dispatch(loadCurrentMessageThunk(id as string));
+    return cleanMessage;
   }, [dispatch, id]);
 
   const goToConversationsPage = () => {
