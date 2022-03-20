@@ -105,4 +105,16 @@ export const handlers = [
       })
     )
   ),
+
+  rest.get(
+    `${process.env.REACT_APP_API_FINDME}messages/undefined`,
+    (req, res, ctx) =>
+      res(
+        ctx.status(404),
+        ctx.json({
+          error: true,
+          messages: "Message not found",
+        })
+      )
+  ),
 ];
