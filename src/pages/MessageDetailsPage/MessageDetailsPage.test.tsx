@@ -4,6 +4,8 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { store } from "../../redux/store";
 import MessageDetailsPage from "./MessageDetailsPage";
+import configureMockStore from "redux-mock-store";
+import thunk from "redux-thunk";
 
 const mockNavigate = jest.fn();
 jest.mock("react-router-dom", () => ({
@@ -60,6 +62,34 @@ describe("Given a MessageDetailsPage component", () => {
       userEvent.click(button);
 
       expect(mockNavigate).toHaveBeenCalledWith(expectedPath);
+    });
+  });
+
+  describe("When it's rendered with message 'Hello'", () => {
+    test("Then it should dasplay the message", async () => {
+      const initialState = {
+        message: {
+          date: "2022-03-20T19:29:49.690Z",
+          text: "Hello!",
+          sender: "",
+          recipient: "",
+          id: "153",
+        },
+      };
+      const mockStore = configureMockStore([thunk]);
+      const mockedStore = mockStore(initialState);
+
+      render(
+        <BrowserRouter>
+          <Provider store={mockedStore}>
+            <MessageDetailsPage />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const text = await screen.findByText("Hello!");
+
+      expect(text).toBeInTheDocument();
     });
   });
 });
