@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { RootState } from "../../redux/store";
 import { updateMessageThunk } from "../../redux/thunks/messagesThunks/messagesThunks";
+import { Toaster } from "react-hot-toast";
 
 const PageContainer = styled.div`
   display: flex;
@@ -96,6 +97,7 @@ const UpdateMessagePage = (): JSX.Element => {
           value={formData.text}
           onChange={handleChange}
         />
+        <Toaster />
         <Button className="form_button" type="submit">
           Update
         </Button>
