@@ -76,12 +76,21 @@ const MessageDetailsPage = (): JSX.Element => {
   return (
     <PageContainer>
       <h3>Message details</h3>
-      {currentMessage.text === "" ? (
+      {currentMessage.date === "" ? (
         <Loader />
       ) : (
         <Text>
           <p>
-            <span>Date:</span> {currentMessage.date}
+            <span>Date of creation:</span>{" "}
+            {new Intl.DateTimeFormat("en-ES", {
+              year: "numeric",
+              month: "numeric",
+              day: "numeric",
+              hour: "numeric",
+              minute: "numeric",
+              second: "numeric",
+              hour12: false,
+            }).format(Date.parse(currentMessage.date))}
           </p>
           <p>
             <span>Sender:</span> {currentMessage.sender}
