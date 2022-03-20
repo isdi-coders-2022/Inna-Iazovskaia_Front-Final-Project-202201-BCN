@@ -9,6 +9,7 @@ import {
   deleteMessageThunk,
   loadMessagesThunk,
 } from "../../redux/thunks/messagesThunks/messagesThunks";
+import { Toaster } from "react-hot-toast";
 
 const PageContainer = styled.div`
   @media (min-width: 600px) {
@@ -102,6 +103,7 @@ const MessagesPage = (): JSX.Element => {
               />
             ))}
           </ul>
+          <Toaster />
           <div ref={messagesEndRef} />
         </ChatBody>
       </ChatContainer>
