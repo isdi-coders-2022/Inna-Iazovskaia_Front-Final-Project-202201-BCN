@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
@@ -70,20 +70,14 @@ const UpdateMessagePage = (): JSX.Element => {
   const messageToUpdate = messages.find((message) => message.id === id);
 
   const initialData = {
-    text: "",
-    date: "",
-    sender: "",
-    recipient: "",
-    id: "",
+    text: messageToUpdate?.text as string,
+    date: messageToUpdate?.date as string,
+    sender: messageToUpdate?.sender as string,
+    recipient: messageToUpdate?.recipient as string,
+    id: messageToUpdate?.id as string,
   };
 
   const [formData, setFormData] = useState(initialData);
-
-  useEffect(() => {
-    if (messageToUpdate) {
-      setFormData({ ...messageToUpdate });
-    }
-  }, [messageToUpdate]);
 
   const handleChange = (event: any) => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
