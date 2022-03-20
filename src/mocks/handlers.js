@@ -93,15 +93,13 @@ export const handlers = [
     res(
       ctx.status(200),
       ctx.json({
-        messages: [
-          {
-            date: "",
-            text: "Hello!",
-            sender: "",
-            recipient: "",
-            id: "153",
-          },
-        ],
+        currentMessage: {
+          date: "",
+          text: "Hello!",
+          sender: "",
+          recipient: "",
+          id: "153",
+        },
       })
     )
   ),
