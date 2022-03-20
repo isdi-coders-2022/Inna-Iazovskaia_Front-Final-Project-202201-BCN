@@ -33,7 +33,6 @@ const MessageText = styled.p`
   margin-bottom: 10px;
   font-size: 16px;
   overflow-wrap: break-word;
-  display: flex;
   cursor: pointer;
 `;
 
