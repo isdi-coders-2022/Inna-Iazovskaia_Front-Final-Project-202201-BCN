@@ -1,12 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { RootState } from "../../redux/store";
-import {
-  loadCurrentMessageThunk,
-  updateMessageThunk,
-} from "../../redux/thunks/messagesThunks/messagesThunks";
+import { updateMessageThunk } from "../../redux/thunks/messagesThunks/messagesThunks";
 
 const PageContainer = styled.div`
   display: flex;
@@ -67,18 +64,15 @@ const UpdateMessagePage = (): JSX.Element => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const messageToUpdate = useSelector((state: RootState) => state.message);
-
-  useEffect(() => {
-    dispatch(loadCurrentMessageThunk(id as string));
-  }, [dispatch, id]);
+  const messages = useSelector((state: RootState) => state.messages);
+  const messageToUpdate = messages.find((message) => message.id === id);
 
   const initialData = {
-    text: messageToUpdate.text,
-    date: messageToUpdate.date,
-    sender: messageToUpdate.sender,
-    recipient: messageToUpdate.recipient,
-    id: messageToUpdate.id,
+    text: messageToUpdate?.text as string,
+    date: messageToUpdate?.date as string,
+    sender: messageToUpdate?.sender as string,
+    recipient: messageToUpdate?.recipient as string,
+    id: messageToUpdate?.id as string,
   };
 
   const [formData, setFormData] = useState(initialData);

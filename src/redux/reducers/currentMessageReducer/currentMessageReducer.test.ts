@@ -42,4 +42,23 @@ describe("Given a currentMessageReducer", () => {
       expect(newMessage).toEqual(expectedMessage);
     });
   });
+
+  describe("When it receives clearMessageDetails", () => {
+    test("Then it should return default message", () => {
+      const action = {
+        type: actionsTypes.clearMessageDetails,
+      };
+      const expectedMessage = {
+        date: "",
+        text: "",
+        sender: "",
+        recipient: "",
+        id: "",
+      };
+
+      const newMessage = currentMessageReducer(defaultMessage, action);
+
+      expect(newMessage).toEqual(expectedMessage);
+    });
+  });
 });
