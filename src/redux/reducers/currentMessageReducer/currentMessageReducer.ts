@@ -9,10 +9,17 @@ const currentMessageReducer = (
 ): Message => {
   let newCurrentMessage: Message;
 
-  if (action.type === actionsTypes.loadCurrentMessage) {
-    newCurrentMessage = { ...action.message };
-  } else {
-    newCurrentMessage = { ...currentMessage };
+  switch (action.type) {
+    case actionsTypes.loadCurrentMessage:
+      newCurrentMessage = { ...action.message };
+      break;
+
+    case actionsTypes.clearMessageDetails:
+      newCurrentMessage = { ...defaultMessage };
+      break;
+
+    default:
+      newCurrentMessage = { ...currentMessage };
   }
 
   return newCurrentMessage;
