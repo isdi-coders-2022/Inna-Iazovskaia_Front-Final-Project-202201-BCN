@@ -9,6 +9,16 @@ import { BrowserRouter } from "react-router-dom";
 import { store } from "../../redux/store";
 import MessagesPage from "./MessagesPage";
 
+window.matchMedia = jest.fn().mockImplementation((query) => {
+  return {
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
+  };
+});
+
 describe("Given a MessagePage component", () => {
   describe("When it receives 2 messages 'Hello!' and 'How are you?'", () => {
     test("Then it should display the messages and 2 icons", async () => {
