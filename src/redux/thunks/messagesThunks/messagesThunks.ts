@@ -9,6 +9,10 @@ import {
 import { AnyAction, Dispatch } from "redux";
 import { Message } from "../../../types/Interfaces";
 import { NavigateFunction } from "react-router-dom";
+import toast from "react-hot-toast";
+
+const notifyDelete = () => toast("Message deleted");
+const notifyUpdate = () => toast("Message updated");
 
 export const loadMessagesThunk = async (
   dispatch: ThunkDispatch<void, unknown, AnyAction>
@@ -31,6 +35,7 @@ export const deleteMessageThunk =
     );
     if (response.ok) {
       dispatch(deleteMessageAction(id));
+      notifyDelete();
     }
   };
 
@@ -68,6 +73,7 @@ export const updateMessageThunk =
     if (response.ok) {
       const updatedMessage = await response.json();
       dispatch(updateMessageAction(updatedMessage));
+      notifyUpdate();
       navigate("/conversations");
     }
   };
