@@ -13,8 +13,8 @@ export interface ButtonInterface {
 }
 
 export interface UserLoginInterface {
-  username: String;
-  password: String;
-  token?: String;
+  username: string;
+  password: string;
+  token?: string;
   loggedIn: boolean;
 }

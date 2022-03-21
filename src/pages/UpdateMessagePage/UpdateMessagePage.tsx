@@ -85,11 +85,11 @@ const UpdateMessagePage = (): JSX.Element => {
 
   useEffect(() => {
     setFormData({
-      text: messageToUpdate?.text as string,
-      date: messageToUpdate?.date as string,
-      sender: messageToUpdate?.sender as string,
-      recipient: messageToUpdate?.recipient as string,
-      id: messageToUpdate?.id as string,
+      text: messageToUpdate.text,
+      date: messageToUpdate.date,
+      sender: messageToUpdate.sender,
+      recipient: messageToUpdate.recipient,
+      id: messageToUpdate.id,
     });
   }, [
     messageToUpdate?.date,
