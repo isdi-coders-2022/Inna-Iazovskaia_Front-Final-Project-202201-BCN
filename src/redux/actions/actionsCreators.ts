@@ -1,4 +1,4 @@
-import { Message } from "../../types/Interfaces";
+import { Message, UserLoginInterface } from "../../types/Interfaces";
 import actionsTypes from "./actionsTypes";
 
 export const loadMessagesAction = (messages: Message[]) => ({
@@ -28,4 +28,9 @@ export const loadCurrentMessageAction = (message: Message) => ({
 
 export const clearMessageDetailsAction = () => ({
   type: actionsTypes.clearMessageDetails,
+});
+
+export const userLoginAction = (user: UserLoginInterface) => ({
+  type: actionsTypes.userLogin,
+  user,
 });
