@@ -9,7 +9,7 @@ const initialUserData = {
   loggedIn: false,
 };
 
-const userReduser = (
+const userReducer = (
   user: UserLoginInterface = initialUserData,
   action: AnyAction
 ) => {
@@ -27,4 +27,4 @@ const userReduser = (
   return newUser;
 };
 
-export default userReduser;
+export default userReducer;

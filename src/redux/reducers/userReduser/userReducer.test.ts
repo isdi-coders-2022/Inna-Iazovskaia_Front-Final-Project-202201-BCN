@@ -1,5 +1,5 @@
 import actionsTypes from "../../actions/actionsTypes";
-import userReduser from "./userReducer";
+import userReducer from "./userReducer";
 
 describe("Given a userReducer function", () => {
   describe("When it receives current user with username 'Tom' and login-user action with user 'Lila'", () => {
@@ -27,7 +27,7 @@ describe("Given a userReducer function", () => {
         loggedIn: false,
       };
 
-      const user = userReduser(currentUser, action);
+      const user = userReducer(currentUser, action);
 
       expect(user).toEqual(expectedUser);
     });
@@ -46,7 +46,7 @@ describe("Given a userReducer function", () => {
         type: "",
       };
 
-      const user = userReduser(currentUser, action);
+      const user = userReducer(currentUser, action);
 
       expect(user).toEqual(initialUserData);
     });
