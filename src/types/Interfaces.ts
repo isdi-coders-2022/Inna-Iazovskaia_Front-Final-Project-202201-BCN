@@ -18,3 +18,8 @@ export interface UserLoginInterface {
   token?: string;
   loggedIn: boolean;
 }
+
+export interface UserLogedInterface {
+  username: string;
+  id: string;
+}
