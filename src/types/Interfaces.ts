@@ -11,3 +11,10 @@ export interface ButtonInterface {
   actionOnClick?: () => void;
   className: string;
 }
+
+export interface UserLoginInterface {
+  username: String;
+  password: String;
+  token?: String;
+  loggedIn: boolean;
+}

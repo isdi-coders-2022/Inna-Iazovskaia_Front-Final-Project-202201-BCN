@@ -5,6 +5,7 @@ const actionsTypes = {
   updateMessage: "update-message",
   loadCurrentMessage: "load-current-message",
   clearMessageDetails: "clear-message-details",
+  userLogin: "user-login",
 };
 
 export default actionsTypes;
