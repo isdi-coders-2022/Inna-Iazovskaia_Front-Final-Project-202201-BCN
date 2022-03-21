@@ -5,6 +5,7 @@ import {
   loadCurrentMessageAction,
   loadMessagesAction,
   updateMessageAction,
+  userLoginAction,
 } from "./actionsCreators";
 import actionsTypes from "./actionsTypes";
 
@@ -129,6 +130,27 @@ describe("Given a clearMessageDetails action", () => {
       };
 
       const action = clearMessageDetailsAction();
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a userLoginAction", () => {
+  describe("When it receives user 'Tom'", () => {
+    test("Then it should retern user-login action with the user", () => {
+      const user = {
+        username: "Tom",
+        password: "userpassword",
+        loggedIn: false,
+      };
+
+      const expectedAction = {
+        type: "user-login",
+        user: user,
+      };
+
+      const action = userLoginAction(user);
 
       expect(action).toEqual(expectedAction);
     });
