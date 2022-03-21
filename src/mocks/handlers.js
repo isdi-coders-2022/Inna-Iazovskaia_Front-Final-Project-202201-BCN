@@ -115,4 +115,28 @@ export const handlers = [
         })
       )
   ),
+
+  rest.post(
+    `${process.env.REACT_APP_API_FINDME}users/login`,
+    (req, res, ctx) => {
+      const user = req.body.username;
+      if (user === "tom") {
+        return res(
+          ctx.status(200),
+          ctx.json({
+            token:
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbSIsImlkIjoiNjIzODg5YmQ3MTA4MjBiZTk5YjFiYmE5IiwiaWF0IjoxNjQ3ODkyNzgyfQ.M0SJBi7wbrWbanr51QI4p90xXF24tGMEgg-L2Bmqu9Q",
+          })
+        );
+      } else {
+        return res(
+          ctx.status(401),
+          ctx.json({
+            error: true,
+            messages: "User not found",
+          })
+        );
+      }
+    }
+  ),
 ];
