@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { RootState } from "../../redux/store";
-import { updateMessageThunk } from "../../redux/thunks/messagesThunks/messagesThunks";
+import {
+  loadCurrentMessageThunk,
+  updateMessageThunk,
+} from "../../redux/thunks/messagesThunks/messagesThunks";
 import { Toaster } from "react-hot-toast";
 
 const PageContainer = styled.div`
@@ -61,23 +64,40 @@ const Button = styled.button`
 `;
 
 const UpdateMessagePage = (): JSX.Element => {
+  const initialFormState = {
+    text: "",
+    date: "",
+    sender: "",
+    recipient: "",
+    id: "",
+  };
+  const [formData, setFormData] = useState(initialFormState);
+
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const messages = useSelector((state: RootState) => state.messages);
+  const messageToUpdate = useSelector((state: RootState) => state.message);
 
-  const messageToUpdate = messages.find((message) => message.id === id);
+  useEffect(() => {
+    dispatch(loadCurrentMessageThunk(id as string));
+  }, [dispatch, id]);
 
-  const initialData = {
-    text: messageToUpdate?.text as string,
-    date: messageToUpdate?.date as string,
-    sender: messageToUpdate?.sender as string,
-    recipient: messageToUpdate?.recipient as string,
-    id: messageToUpdate?.id as string,
-  };
-
-  const [formData, setFormData] = useState(initialData);
+  useEffect(() => {
+    setFormData({
+      text: messageToUpdate?.text as string,
+      date: messageToUpdate?.date as string,
+      sender: messageToUpdate?.sender as string,
+      recipient: messageToUpdate?.recipient as string,
+      id: messageToUpdate?.id as string,
+    });
+  }, [
+    messageToUpdate?.date,
+    messageToUpdate?.id,
+    messageToUpdate?.recipient,
+    messageToUpdate?.sender,
+    messageToUpdate?.text,
+  ]);
 
   const handleChange = (event: any) => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
@@ -99,6 +119,7 @@ const UpdateMessagePage = (): JSX.Element => {
           onChange={handleChange}
         />
         <Toaster />
+
         <Button className="form_button" type="submit">
           Update
         </Button>
