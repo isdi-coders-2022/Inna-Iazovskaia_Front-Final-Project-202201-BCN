@@ -1,15 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import PrimaryButton from "./PrimaryButton";
-import TestRenderer from "react-test-renderer";
+import LoginRegisterButton from "./LoginRegisterButton";
 
-describe("Given a PrimaryButton copmponent", () => {
+describe("Given a LoginRegisterButton copmponent", () => {
   describe("When it receives 'Push' as its text", () => {
     test("Then it should render button with text 'Push'", () => {
       const text = "Push";
       const className = "";
 
-      render(<PrimaryButton text={text} className={className} />);
+      render(<LoginRegisterButton text={text} className={className} />);
 
       const button = screen.getByRole("button", { name: text });
 
@@ -22,7 +21,7 @@ describe("Given a PrimaryButton copmponent", () => {
       const text = "";
       const className = "button-cless";
 
-      render(<PrimaryButton text={text} className={className} />);
+      render(<LoginRegisterButton text={text} className={className} />);
 
       const button = screen.getByRole("button");
 
@@ -37,7 +36,7 @@ describe("Given a PrimaryButton copmponent", () => {
       const className = "";
 
       render(
-        <PrimaryButton
+        <LoginRegisterButton
           text={text}
           className={className}
           actionOnClick={actionOnClick}
@@ -47,17 +46,6 @@ describe("Given a PrimaryButton copmponent", () => {
       userEvent.click(screen.getByRole("button"));
 
       expect(actionOnClick).toHaveBeenCalled();
-    });
-  });
-
-  describe("When it's rendered'", () => {
-    test("Then it should always match this snapshot", () => {
-      const text = "";
-      const className = "";
-      const renderedButton = TestRenderer.create(
-        <PrimaryButton text={text} className={className} />
-      );
-      expect(renderedButton).toMatchSnapshot();
     });
   });
 });
