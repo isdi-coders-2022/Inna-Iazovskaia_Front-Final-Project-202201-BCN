@@ -9,6 +9,8 @@ export interface Message {
 export interface ButtonInterface {
   text: string;
   actionOnClick?: () => void;
+  type?: string;
+  disabled?: boolean;
   className: string;
 }
 
