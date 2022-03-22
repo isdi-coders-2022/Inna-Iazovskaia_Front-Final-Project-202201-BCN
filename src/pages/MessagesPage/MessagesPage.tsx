@@ -10,6 +10,7 @@ import {
   loadMessagesThunk,
 } from "../../redux/thunks/messagesThunks/messagesThunks";
 import { Toaster } from "react-hot-toast";
+import Navigation from "../../components/Navigation/Navigation";
 
 const PageContainer = styled.div`
   @media (min-width: 600px) {
@@ -84,31 +85,37 @@ const MessagesPage = (): JSX.Element => {
   };
 
   return (
-    <PageContainer>
-      <ChatHeader>
-        <HeaderImage src="/images/pexels-photo-2613260.jpeg" alt="girl photo" />
-        <p>Selia</p>
-      </ChatHeader>
-      <ChatContainer>
-        {!messages.length && <Loader />}
-        <ChatBody>
-          <ul>
-            {messages.map((message) => (
-              <MessageCard
-                message={message}
-                key={message.id}
-                actionOnClick={() => {
-                  deleteMessage(message.id);
-                }}
-              />
-            ))}
-          </ul>
-          <Toaster />
-          <div ref={messagesEndRef} />
-        </ChatBody>
-      </ChatContainer>
-      <MessageForm />
-    </PageContainer>
+    <>
+      <Navigation />
+      <PageContainer>
+        <ChatHeader>
+          <HeaderImage
+            src="/images/pexels-photo-2613260.jpeg"
+            alt="girl photo"
+          />
+          <p>Selia</p>
+        </ChatHeader>
+        <ChatContainer>
+          {!messages.length && <Loader />}
+          <ChatBody>
+            <ul>
+              {messages.map((message) => (
+                <MessageCard
+                  message={message}
+                  key={message.id}
+                  actionOnClick={() => {
+                    deleteMessage(message.id);
+                  }}
+                />
+              ))}
+            </ul>
+            <Toaster />
+            <div ref={messagesEndRef} />
+          </ChatBody>
+        </ChatContainer>
+        <MessageForm />
+      </PageContainer>
+    </>
   );
 };
 
