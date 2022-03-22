@@ -17,7 +17,7 @@ describe("Given a PrimaryButton copmponent", () => {
     });
   });
 
-  describe("When it receives 'button-cless' as its className", () => {
+  describe("When it receives 'button-class' as its className", () => {
     test("Then it should render button with class 'button-cless'", () => {
       const text = "";
       const className = "button-cless";
