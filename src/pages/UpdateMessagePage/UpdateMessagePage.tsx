@@ -8,6 +8,7 @@ import {
   updateMessageThunk,
 } from "../../redux/thunks/messagesThunks/messagesThunks";
 import { Toaster } from "react-hot-toast";
+import Navigation from "../../components/Navigation/Navigation";
 
 const PageContainer = styled.div`
   display: flex;
@@ -109,22 +110,25 @@ const UpdateMessagePage = (): JSX.Element => {
   };
 
   return (
-    <PageContainer>
-      <h3>Edit the message</h3>
-      <Form onSubmit={onSubmit} autoComplete="off" noValidate>
-        <Text
-          name="text"
-          id="text"
-          value={formData.text}
-          onChange={handleChange}
-        />
-        <Toaster />
+    <>
+      <Navigation />
+      <PageContainer>
+        <h3>Edit the message</h3>
+        <Form onSubmit={onSubmit} autoComplete="off" noValidate>
+          <Text
+            name="text"
+            id="text"
+            value={formData.text}
+            onChange={handleChange}
+          />
+          <Toaster />
 
-        <Button className="form_button" type="submit">
-          Update
-        </Button>
-      </Form>
-    </PageContainer>
+          <Button className="form_button" type="submit">
+            Update
+          </Button>
+        </Form>
+      </PageContainer>
+    </>
   );
 };
 

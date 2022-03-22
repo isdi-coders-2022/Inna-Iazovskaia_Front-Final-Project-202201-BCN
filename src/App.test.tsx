@@ -6,7 +6,7 @@ import { store } from "./redux/store";
 
 describe("Given a App component", () => {
   describe("When it's rendered", () => {
-    test("Then it should render nav", () => {
+    test("Then it should render main", () => {
       Element.prototype.scrollIntoView = jest.fn();
       render(
         <BrowserRouter>
@@ -16,9 +16,9 @@ describe("Given a App component", () => {
         </BrowserRouter>
       );
 
-      const nav = screen.getByRole("navigation");
+      const main = screen.getByRole("main");
 
-      expect(nav).toBeInTheDocument();
+      expect(main).toBeInTheDocument();
     });
   });
 });

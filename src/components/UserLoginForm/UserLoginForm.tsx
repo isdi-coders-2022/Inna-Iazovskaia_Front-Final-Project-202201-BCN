@@ -10,12 +10,18 @@ const FormContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  width: 80%;
 `;
 
 const Form = styled.form`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  width: 80%;
+
+  .button-login {
+    margin-top: 70px;
+    margin-bottom: 10px;
+  }
 `;
 
 const InputUserData = styled.input`
@@ -29,6 +35,7 @@ const InputUserData = styled.input`
   background-color: black;
   color: white;
   font-size: 15px;
+  margin-bottom: 30px;
 `;
 
 const UserLoginForm = (): JSX.Element => {
@@ -80,7 +87,7 @@ const UserLoginForm = (): JSX.Element => {
         <LoginRegisterButton
           type="submit"
           text="Log in"
-          className="button-login"
+          className={isFilled ? "button-login" : "button-login inactive"}
           disabled={!isFilled}
         />
       </Form>

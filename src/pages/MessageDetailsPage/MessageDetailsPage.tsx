@@ -7,6 +7,7 @@ import Loader from "../../components/Loader/Loader";
 import { RootState } from "../../redux/store";
 import { loadCurrentMessageThunk } from "../../redux/thunks/messagesThunks/messagesThunks";
 import { clearMessageDetailsAction } from "../../redux/actions/actionsCreators";
+import Navigation from "../../components/Navigation/Navigation";
 
 const PageContainer = styled.div`
   display: flex;
@@ -74,41 +75,44 @@ const MessageDetailsPage = (): JSX.Element => {
   };
 
   return (
-    <PageContainer>
-      <h3>Message details</h3>
-      {currentMessage.date === "" ? (
-        <Loader />
-      ) : (
-        <Text>
-          <p>
-            <span>Date of creation:</span>{" "}
-            {new Intl.DateTimeFormat("en-ES", {
-              year: "numeric",
-              month: "numeric",
-              day: "numeric",
-              hour: "numeric",
-              minute: "numeric",
-              second: "numeric",
-              hour12: false,
-            }).format(Date.parse(currentMessage.date))}
-          </p>
-          <p>
-            <span>Sender:</span> {currentMessage.sender}
-          </p>
-          <p>
-            <span>Recipient:</span> {currentMessage.recipient}
-          </p>
-          <p>
-            <span>Message text:</span> {currentMessage.text}
-          </p>
-        </Text>
-      )}
-      <PrimaryButton
-        actionOnClick={() => goToConversationsPage()}
-        className=""
-        text="Go back"
-      />
-    </PageContainer>
+    <>
+      <Navigation />
+      <PageContainer>
+        <h3>Message details</h3>
+        {currentMessage.date === "" ? (
+          <Loader />
+        ) : (
+          <Text>
+            <p>
+              <span>Date of creation:</span>{" "}
+              {new Intl.DateTimeFormat("en-ES", {
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+                second: "numeric",
+                hour12: false,
+              }).format(Date.parse(currentMessage.date))}
+            </p>
+            <p>
+              <span>Sender:</span> {currentMessage.sender}
+            </p>
+            <p>
+              <span>Recipient:</span> {currentMessage.recipient}
+            </p>
+            <p>
+              <span>Message text:</span> {currentMessage.text}
+            </p>
+          </Text>
+        )}
+        <PrimaryButton
+          actionOnClick={() => goToConversationsPage()}
+          className=""
+          text="Go back"
+        />
+      </PageContainer>
+    </>
   );
 };
 
