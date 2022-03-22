@@ -20,3 +20,7 @@ ul {
 .button-register {
   background: rgba(94, 100, 255, 1);
 }
+
+.inactive {
+  background: rgb(231, 137, 187);
+}
