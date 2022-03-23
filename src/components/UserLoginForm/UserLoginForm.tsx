@@ -7,10 +7,9 @@ import LoginRegisterButton from "../LoginRegisterButton/LoginRegisterButton";
 
 const FormContainer = styled.div`
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  width: 100%;
   align-items: center;
-  width: 80%;
 `;
 
 const Form = styled.form`
@@ -36,6 +35,7 @@ const InputUserData = styled.input`
   color: white;
   font-size: 15px;
   margin-bottom: 30px;
+  font-size: 18px;
 `;
 
 const UserLoginForm = (): JSX.Element => {

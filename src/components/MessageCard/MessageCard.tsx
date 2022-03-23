@@ -31,7 +31,7 @@ const MessageText = styled.p`
   border-radius: 20px;
   padding: 10px;
   margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 18px;
   overflow-wrap: break-word;
   cursor: pointer;
 `;

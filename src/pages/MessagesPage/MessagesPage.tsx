@@ -27,7 +27,11 @@ const ChatContainer = styled.div`
   ::-webkit-scrollbar {
     width: 0;
   }
-  height: 400px;
+  height: calc(100vh - 260px);
+
+  @media (min-width: 600px) {
+    height: calc(100vh - 290px);
+  }
 `;
 
 const ChatHeader = styled.div`
@@ -52,14 +56,14 @@ const HeaderImage = styled.img`
   width: 80px;
   height: 80px;
   border-radius: 50%;
+  object-fit: cover;
 `;
 
 const ChatBody = styled.section`
-  display: flex;
-  flex-direction: column;
+  height: 100%;
+
   ul {
     padding: 0;
-    height: 400px;
   }
 `;
 

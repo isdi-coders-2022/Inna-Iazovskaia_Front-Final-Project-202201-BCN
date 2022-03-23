@@ -37,6 +37,8 @@ const Input = styled.input`
   height: 35px;
   border-radius: 20px 0 0 20px;
   border: none;
+  padding: 8px;
+  font-size: 18px;
 `;
 
 const MessageForm = (): JSX.Element => {

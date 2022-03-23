@@ -4,7 +4,6 @@ import LoginRegisterButton from "../../components/LoginRegisterButton/LoginRegis
 import UserLoginForm from "../../components/UserLoginForm/UserLoginForm";
 
 const PageContainer = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,12 +16,12 @@ const PageContainer = styled.div`
   }
 
   .button-register {
-    width: 80%;
+    width: 100%;
   }
 `;
 
 const PageBody = styled.div`
-  width: 400px;
+  height: calc(100vh - 156px);
   display: flex;
   flex-direction: column;
   align-items: center;
