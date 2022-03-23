@@ -4,6 +4,8 @@ import MessageDetailsPage from "./pages/MessageDetailsPage/MessageDetailsPage";
 import MessagesPage from "./pages/MessagesPage/MessagesPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import UpdateMessagePage from "./pages/UpdateMessagePage/UpdateMessagePage";
+import "@fontsource/heebo";
+import "@fontsource/dynalight";
 
 function App() {
   return (
