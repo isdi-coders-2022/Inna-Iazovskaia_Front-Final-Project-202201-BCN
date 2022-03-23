@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import LoginRegisterButton from "./LoginRegisterButton";
+import TestRenderer from "react-test-renderer";
 
 describe("Given a LoginRegisterButton copmponent", () => {
   describe("When it receives 'Push' as its text", () => {
@@ -46,6 +47,17 @@ describe("Given a LoginRegisterButton copmponent", () => {
       userEvent.click(screen.getByRole("button"));
 
       expect(actionOnClick).toHaveBeenCalled();
+    });
+  });
+
+  describe("When it's rendered'", () => {
+    test("Then it should always match this snapshot", () => {
+      const text = "";
+      const className = "";
+      const renderedButton = TestRenderer.create(
+        <LoginRegisterButton text={text} className={className} />
+      );
+      expect(renderedButton).toMatchSnapshot();
     });
   });
 });
