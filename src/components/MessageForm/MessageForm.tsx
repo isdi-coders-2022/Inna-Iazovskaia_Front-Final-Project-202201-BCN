@@ -74,7 +74,11 @@ const MessageForm = (): JSX.Element => {
           value={formData.text}
           onChange={handleChange}
         />
-        <button className="form_button" type="submit">
+        <button
+          className="form_button"
+          type="submit"
+          aria-label="send a message"
+        >
           <FontAwesomeIcon className="send_icon" icon={faPaperPlane} />
         </button>
       </Border>

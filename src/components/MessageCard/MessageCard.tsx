@@ -63,6 +63,7 @@ const MessageCard = ({
         icon={faTrashCan}
         onClick={actionOnClick}
         data-testid="deleteIcon"
+        aria-label="delete"
       />
       <FontAwesomeIcon
         className="page_icon"
@@ -71,6 +72,7 @@ const MessageCard = ({
           goToUpdatePage(id);
         }}
         data-testid="updateIcon"
+        aria-label="update"
       />
     </MessageContainer>
   );
